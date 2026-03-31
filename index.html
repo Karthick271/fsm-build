@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fsm-react</title>
+  <script type="text/javascript">
+    // ⚙️ SPA Path Restoration
+    // This script decodes the path preserved by 404.html and restores it via history.replaceState
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&') 
+        }).filter(function(s) {
+          return s !== '/'; // Filter out the artificial path root
+        });
+        
+        var path = decoded[0];
+        var query = decoded.slice(1).join('&');
+        
+        if (path) {
+          var targetUrl = l.pathname.slice(0, -1) + path + (query ? '?' + query : '') + l.hash;
+          console.log("⚙️ SPA-Restore: Detected preserved path:", path);
+          console.log("✅ SPA-Restore: Final redirect URL:", targetUrl);
+          
+          window.history.replaceState(null, null, targetUrl);
+        } else {
+          console.log("ℹ️ SPA-Restore: At root, no restoration needed.");
+        }
+      } else {
+        console.log("ℹ️ SPA-Restore: Direct URL access, no preservation found.");
+      }
+    }(window.location))
+  </script>
+  <script type="module" crossorigin src="/assets/index-D-9T-Mx2.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ytHjZX3a.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="root-portal"></div>
+</body>
+
+</html>
