@@ -1,49 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://static.onestack360.com/assets/favicon-eMPcS_s8.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Onestack360 FSM</title>
-    <script type="text/javascript">
-      // ⚙️ SPA Path Restoration
-      // This script decodes the path preserved by 404.html and restores it via history.replaceState
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .filter(function (s) {
-              return s !== "/"; // Filter out the artificial path root
-            });
 
-          var path = decoded[0];
-          var query = decoded.slice(1).join("&");
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="https://static.onestack360.com/assets/favicon-eMPcS_s8.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onestack360 FSM</title>
+  <script type="text/javascript">
+    // ⚙️ SPA Path Restoration
+    // This script decodes the path preserved by 404.html and restores it via history.replaceState
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .filter(function (s) {
+            return s !== "/"; // Filter out the artificial path root
+          });
 
-          if (path) {
-            var targetUrl =
-              l.pathname.slice(0, -1) +
-              path +
-              (query ? "?" + query : "") +
-              l.hash;
+        var path = decoded[0];
+        var query = decoded.slice(1).join("&");
 
-            window.history.replaceState(null, null, targetUrl);
-          } else {
-          }
+        if (path) {
+          var targetUrl =
+            l.pathname.slice(0, -1) +
+            path +
+            (query ? "?" + query : "") +
+            l.hash;
+
+          window.history.replaceState(null, null, targetUrl);
         } else {
         }
-      })(window.location);
-    </script>
-    <script type="module" crossorigin src="https://static.onestack360.com/assets/index-CfRznQr9.js"></script>
-    <link rel="stylesheet" crossorigin href="https://static.onestack360.com/assets/index-CI_DEpz-.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <div id="root-portal"></div>
-    <script src="https://static.onestack360.com/dashboard/assets/js/vendor.min.js"></script>
-    <script src="https://static.onestack360.com/dashboard/assets/js/theme.min.js"></script>
-  </body>
+      } else {
+      }
+    })(window.location);
+  </script>
+  <script type="module" crossorigin src="https://static.onestack360.com/assets/index-CzymvjYO.js"></script>
+  <link rel="stylesheet" crossorigin href="https://static.onestack360.com/assets/index-CQ32zBfC.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="root-portal"></div>
+  <script src="https://static.onestack360.com/static/assets/js/vendor.min.js"></script>
+  <script src="https://static.onestack360.com/static/assets/js/theme.min.js"></script>
+</body>
+
 </html>
